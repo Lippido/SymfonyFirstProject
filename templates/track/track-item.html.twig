@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %} - Music App{% endblock %}
+
+{% block body %}
+
+<div class="track">
+    <div class="track-header">
+
+        <div class="track-details">
+            <h2 class="track-title">{{ track.name }}</h2>
+            <p class="track-artist">By {{ track.authors }}</p>
+        </div>
+
+        {% if track.pictureLink %}
+            <img src="{{ track.pictureLink }}" alt="Album cover" class="track-img">
+        {% else %}
+            <img src="" alt="No album cover available" class="track-img">
+        {% endif %}
+        
+    </div>
+    
+    <div class="track-info">
+            <p class="track-duration">{{ (track.durationMs / 60000) | number_format(0) }}:{{ (track.durationMs % 60000 / 1000) | number_format(0) }}</p>
+    </div>
+    
+    <a href="{{ track.spotifyUrl }}" target="_blank" class="track-link">Listen on Spotify</a>
+</div>
+{% endblock %}

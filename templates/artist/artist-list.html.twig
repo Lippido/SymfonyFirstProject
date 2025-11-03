@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SERCH{% endblock %}
+
+{% block body %}
+
+<div class="card-list">
+    {% for artist in artists %}
+        {% include 'component/card-artist.html.twig' with {'artist': artist} %}
+    {% endfor %}
+</div>
+
+{% endblock %}

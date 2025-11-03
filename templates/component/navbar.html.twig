@@ -1,0 +1,39 @@
+<header class="navbar-container">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/track" class="logo">
+                <span class="logo-text">MusicApp</span>
+            </a>
+        </div>
+        
+        <div class="navbar-center">
+            <div class="search-form">
+                {{ render(path('app_include_search_form')) }}
+            </div>
+        </div>
+
+        <div class="navbar-menu">
+            <a href="{{ path('search_tracks')}}" class="nav-link">
+                Tracks
+            </a>
+            <a href="{{ path('search_artists') }}" class="nav-link">
+                Artists
+            </a>
+            {% if app.user %}
+                <a href="{{ path('all_liked_track') }}" class="nav-link">
+                    My Tracks
+                </a>
+                <a href="{{ path('all_liked_artists') }}" class="nav-link">
+                    My Artists
+                </a>
+                <a href="{{ path('app_logout') }}" class="nav-link logout">
+                    Logout
+                </a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="nav-link login">
+                    Login
+                </a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

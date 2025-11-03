@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SERCH{% endblock %}
+
+{% block body %}
+
+<div class="card-list">
+    {% for track in tracks %}
+        {% include 'component/card-track.html.twig' with {'track': track} %}
+    {% endfor %}
+</div>
+
+{% endblock %}

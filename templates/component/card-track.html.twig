@@ -1,0 +1,18 @@
+<div class="card">
+    <a href="{{ path('track_show', {'id': track.spotifyId}) }}" class="card-link">
+        <div class="card-img-overlay">
+            {% if track.pictureLink %}
+                <img src="{{ track.pictureLink }}" alt="Album cover" class="card-img" loading="lazy">
+            {% else %}
+                <div class="card-img no-image">
+                    <span class="no-image-text">No Image</span>
+                </div>
+            {% endif %}
+        </div>
+        <p class="card-title scrollable-text">{{ track.name }}</p>
+    </a>
+    {% if app.user %}
+        <a href="{{ path('track_like', {'idtrack': track.spotifyId}) }}" class="like-button" title="Add to favorites"></a>
+    {% endif %}
+    <p class="card-artist scrollable-text">{{ track.authors }}</p>
+</div>

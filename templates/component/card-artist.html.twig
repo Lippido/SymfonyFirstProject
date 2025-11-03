@@ -1,0 +1,24 @@
+<div class="card">
+    <a href="{{ path('artist_show', {'id': artist.spotifyId}) }}" class="card-link">
+        <div class="card-img-overlay">
+            {% if artist.pictureLink %}
+                <img src="{{ artist.pictureLink }}" alt="Artist profile picture" class="card-img artist-img" loading="lazy">
+            {% else %}
+                <div class="card-img no-image artist-no-image">
+                    <span class="no-image-text">No Image</span>
+                </div>
+            {% endif %}
+        </div>
+        <p class="card-title scrollable-text">{{ artist.name }}</p>
+    </a>
+    {% if app.user %}
+        <a href="{{ path('artist_like', {'idartist': artist.spotifyId}) }}" class="like-button" title="Add to favorites"></a>
+    {% endif %}
+    <p class="card-artist scrollable-text">
+        {% if artist.followers %}
+            {{ artist.followers|number_format(0, '.', ',') }} followers
+        {% else %}
+            Artist
+        {% endif %}
+    </p>
+</div>
